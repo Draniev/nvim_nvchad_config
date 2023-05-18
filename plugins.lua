@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -44,11 +44,11 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        -- defaults 
+        -- defaults
         "vim",
         "lua",
 
-        -- web dev 
+        -- web dev
         "html",
         "css",
         "javascript",
@@ -71,14 +71,27 @@ local plugins = {
       git = {
         enable = true,
         ignore = false,
+        show_on_dirs = true,
+        timeout = 400,
       },
 
-      icons = {
-        show = {
-          file = true,
-          folder = true,
-          folder_arrow = true,
-          git = true,
+      renderer = {
+        root_folder_label = false,
+        highlight_git = false,
+        highlight_opened_files = "none",
+
+        indent_markers = {
+          enable = true,
+        },
+
+        icons = {
+          git_placement = "after",
+          show = {
+            file = true,
+            folder = true,
+            folder_arrow = true,
+            git = true,
+          },
         },
       },
     },
