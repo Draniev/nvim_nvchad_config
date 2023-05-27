@@ -10,6 +10,8 @@ opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
 
+opt.wrap = false
+
 opt.scrolloff = 8
 opt.sidescrolloff = 4
 -- Auto resize panes when resizing nvim window
