@@ -4,7 +4,48 @@ local M = {}
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
+    -- line numbers
+    ["<leader>un"] = { "<cmd> set nu! <CR>", "Toggle line number" },
+    ["<leader>ur"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
+
+    ["<leader>uh"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
+    ["<leader>l"] = {"", "LSP functions"},
   },
+}
+
+M.disabled = {
+    n = {
+        -- general
+        ["<leader>rn"] = "",
+        ["<leader>n"] = "",
+        ["<leader>ch"] = "",
+
+        -- LSP functions keybinds
+        -- -> <leader>l + button (leader + Lsp + funk)
+        -- -> <leader>g + button (leader + Go + funk)
+        -- -> <leader>w + button (leader + Workplace + funk)
+        ["K"] = "",
+        ["<leader>D"] = "",
+        ["<leader>ra"] = "",
+        ["<leader>ca"] = "",
+        ["<leader>f"] = "",
+        ["<leader>fm"] = "",
+        ["<leader>q"] = "",
+
+        -- nvimtree 
+        ["<C-n>"] = "",
+
+        -- nvterm
+        ["<leader>v"] = "",
+        ["<leader>h"] = "",
+
+        -- telescope
+        ["<leader>pt"] = "",
+        ["<leader>cm"] = "",
+        ["<leader>gt"] = "",
+        ["<leader>th"] = "",
+    },
+
 }
 
 -- more keybinds!
@@ -57,7 +98,7 @@ M.lspconfig = {
       "LSP definition",
     },
 
-    ["K"] = {
+    ["<leader>lk"] = {
       function()
         vim.lsp.buf.hover()
       end,
@@ -78,7 +119,7 @@ M.lspconfig = {
       "LSP signature help",
     },
 
-    ["<leader>D"] = {
+    ["<leader>gD"] = {
       function()
         vim.lsp.buf.type_definition()
       end,
@@ -99,14 +140,14 @@ M.lspconfig = {
       "LSP code action",
     },
 
-    ["gr"] = {
+    ["<leader>le"] = {
       function()
         vim.lsp.buf.references()
       end,
       "LSP references",
     },
 
-    ["<leader>f"] = {
+    ["<leader>ld"] = {
       function()
         vim.diagnostic.open_float { border = "rounded" }
       end,
@@ -127,7 +168,7 @@ M.lspconfig = {
       "Goto next",
     },
 
-    ["<leader>q"] = {
+    ["<leader>lq"] = {
       function()
         vim.diagnostic.setloclist()
       end,
@@ -163,4 +204,67 @@ M.lspconfig = {
     },
   },
 }
+
+M.nvimtree = {
+  plugin = true,
+
+  n = {
+    -- toggle
+    ["<C-e>"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
+
+    -- focus
+    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
+  },
+}
+
+M.nvterm = {
+
+  n = {
+    -- toggle in normal mode
+    ["<A-f>"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "Toggle floating term",
+    },
+
+    -- new
+    ["<leader>th"] = {
+      function()
+        require("nvterm.terminal").new "horizontal"
+      end,
+      "New horizontal term",
+    },
+
+    ["<leader>tv"] = {
+      function()
+        require("nvterm.terminal").new "vertical"
+      end,
+      "New vertical term",
+    },
+
+    ["<leader>tf"] = {
+      function()
+        require("nvterm.terminal").new "float"
+      end,
+      "New float term",
+    },
+  },
+}
+
+M.telescope = {
+
+  n = {
+    -- git
+    ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+    ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+
+    -- pick a hidden term
+    ["<leader>tp"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
+
+    -- theme switcher
+    -- ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
+  },
+}
+
 return M
