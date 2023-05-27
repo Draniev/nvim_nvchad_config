@@ -9,7 +9,7 @@ M.general = {
     ["<leader>ur"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
 
     ["<leader>uh"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
-    ["<leader>l"] = {"", "LSP functions"},
+    -- ["<leader>l"] = {"", "LSP functions"},
   },
 }
 
@@ -33,7 +33,7 @@ M.disabled = {
         ["<leader>q"] = "",
 
         -- nvimtree 
-        ["<C-n>"] = "",
+        -- ["<C-n>"] = "",
 
         -- nvterm
         ["<leader>v"] = "",
@@ -210,7 +210,7 @@ M.nvimtree = {
 
   n = {
     -- toggle
-    ["<C-e>"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
+    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
 
     -- focus
     ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
