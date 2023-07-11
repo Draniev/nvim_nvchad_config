@@ -23,6 +23,8 @@ local plugins = {
   },
 
   -- override plugin configs
+  -- Список LSP которые будут автоматически установлены Mason-ом при запуске
+  -- если вдруг еще не установлены 
   {
     "williamboman/mason.nvim",
     opts = {
@@ -36,6 +38,8 @@ local plugins = {
         "yaml-language-server",
         "typescript-language-server",
         "clang-format",
+        "docker-langserver",
+        "docker-compose-langserver",
       },
     },
   },
