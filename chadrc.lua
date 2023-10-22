@@ -23,17 +23,12 @@ M.ui = {
 
   tabufline = {
     lazyload = false,
-    -- overriden_modules = function()
-    --   return require "custom.buttons"
-    -- end,
-
-    -- overriden_modules = function()
-    --   local modules = require "nvchad_ui.tabufline.modules"
-    --
-    --   return {
-    --     buttons = ""
-    --   }
-    -- end,
+    -- вот эта штука ниже выключает кнопки (крестик справа)
+    overriden_modules = function(modules)
+      modules[4] = (function()
+        return ""
+      end)()
+    end,
   },
 }
 
